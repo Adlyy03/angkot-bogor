@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Angkot Bogor - modern public transportation landing page with routes, features, testimonials, FAQ, and app download CTA.">
+	<title>Angkot Bogor</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-loading">
+	<div class="loading-screen" data-loading-screen aria-hidden="true">
+		<div class="loader" aria-label="Memuat halaman"><span></span></div>
+	</div>
+
+	<header class="site-header">
+		<div class="container">
+			<nav class="navbar" aria-label="Navigasi utama">
+				<a class="brand" href="#home">
+					<span class="brand-mark">A</span>
+					<span class="brand-text"><span>Angkot Bogor</span><span>Mobilitas Kota</span></span>
+				</a>
+
+				<div class="nav-links" data-nav-links>
+					<a href="#home">Beranda</a>
+					<a href="#about">Tentang</a>
+					<a href="#routes">Rute</a>
+					<a href="#features">Keunggulan</a>
+					<a href="#stats">Statistik</a>
+					<a href="#testimonials">Testimoni</a>
+					<a href="#faq">FAQ</a>
+				</div>
+
+				<div class="nav-actions">
+					<button class="icon-button" type="button" data-theme-toggle aria-pressed="false" aria-label="Toggle dark mode">
+						<span>◐</span>
+					</button>
+					<a class="secondary-button" href="#download">Unduh App</a>
+					<button class="icon-button menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="Buka menu">
+						<span>☰</span>
+					</button>
+				</div>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<section class="hero section" id="home">
+			<div class="container hero-grid">
+				<div class="hero-copy reveal" data-reveal>
+					<div class="hero-badge">Transportasi publik modern untuk Bogor</div>
+					<h1 class="hero-title" data-hero-title>Angkot <span class="accent">Bogor</span> yang cepat, nyaman, dan terhubung.</h1>
+					<p class="hero-text" data-hero-copy>Temukan rute angkot populer, estimasi waktu tempuh, harga yang jelas, dan pengalaman mobilitas kota yang terasa lebih modern untuk warga Bogor.</p>
+					<div class="hero-actions" data-hero-actions>
+						<a class="primary-button" href="#routes">Lihat Rute</a>
+						<a class="secondary-button" href="#download">Download App</a>
+					</div>
+					<ul class="hero-points">
+						<li>Info rute real-time</li>
+						<li>Pembayaran lebih praktis</li>
+						<li>Ramah pengguna mobile</li>
+					</ul>
+				</div>
+
+				<div class="hero-visual reveal" data-reveal>
+					<div class="hero-card" data-hero-stage>
+						<div class="hero-graphic"></div>
+						<div class="hero-float one">
+							<strong>45+ Rute</strong>
+							<span>Tersedia aktif</span>
+						</div>
+						<div class="hero-float two">
+							<strong>5 Menit</strong>
+							<span>Update cepat</span>
+						</div>
+						<div class="hero-float three">
+							<strong>4.8/5</strong>
+							<span>Rating penumpang</span>
+						</div>
+						<svg class="hero-vehicle" viewBox="0 0 520 260" role="img" aria-label="Ilustrasi angkot Bogor modern">
+							<defs>
+								<linearGradient id="busBody" x1="0%" y1="0%" x2="100%" y2="100%">
+									<stop offset="0%" stop-color="#56b86d" />
+									<stop offset="100%" stop-color="#1f6f3a" />
+								</linearGradient>
+							</defs>
+							<ellipse cx="260" cy="226" rx="186" ry="18" fill="rgba(13,26,18,0.16)" />
+							<rect x="94" y="82" width="332" height="102" rx="28" fill="url(#busBody)" />
+							<rect x="108" y="95" width="216" height="62" rx="18" fill="rgba(255,255,255,0.88)" />
+							<rect x="336" y="95" width="72" height="62" rx="16" fill="rgba(255,255,255,0.28)" />
+							<rect x="132" y="113" width="62" height="32" rx="8" fill="#dff3e4" />
+							<rect x="204" y="113" width="62" height="32" rx="8" fill="#dff3e4" />
+							<rect x="346" y="111" width="48" height="34" rx="10" fill="#dff3e4" />
+							<rect x="390" y="104" width="14" height="58" rx="7" fill="#dff3e4" opacity="0.7" />
+							<circle cx="160" cy="194" r="28" fill="#203024" />
+							<circle cx="160" cy="194" r="14" fill="#dae8dc" />
+							<circle cx="360" cy="194" r="28" fill="#203024" />
+							<circle cx="360" cy="194" r="14" fill="#dae8dc" />
+							<rect x="82" y="136" width="28" height="24" rx="10" fill="#20402a" />
+							<rect x="396" y="136" width="22" height="24" rx="8" fill="#20402a" />
+						</svg>
+					</div>
+				</div>
+			</div>
+
+			<div class="container">
+				<div class="trust-strip reveal" data-reveal>
+					<div class="trust-item"><strong>98%</strong><span>Ketepatan informasi rute</span></div>
+					<div class="trust-item"><strong>120K+</strong><span>Penumpang bulanan</span></div>
+					<div class="trust-item"><strong>24/7</strong><span>Akses info perjalanan</span></div>
+					<div class="trust-item"><strong>4.8</strong><span>Skor kepuasan pengguna</span></div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section--soft" id="about">
+			<div class="container grid-two">
+				<div class="section-heading reveal" data-reveal>
+					<span class="section-kicker">Tentang Angkot Bogor</span>
+					<h2 class="section-title">Satu tempat untuk memahami angkutan kota Bogor dengan cara yang lebih modern.</h2>
+					<p class="section-copy">Kami merancang pengalaman digital yang membantu warga, pelajar, dan wisatawan menemukan rute angkot dengan cepat tanpa tampilan yang rumit.</p>
+				</div>
+
+				<div class="about-panel reveal" data-reveal>
+					<ul class="about-list">
+						<li><span class="check">✓</span><div><strong>Informasi mudah diakses</strong><p class="section-copy">Rute, waktu tempuh, dan tarif tampil dengan bahasa yang jelas dan ringkas.</p></div></li>
+						<li><span class="check">✓</span><div><strong>Dirancang mobile first</strong><p class="section-copy">Tampilan nyaman dipakai di layar kecil dengan jarak sentuh yang lega.</p></div></li>
+						<li><span class="check">✓</span><div><strong>Nuansa startup transportasi</strong><p class="section-copy">Visual premium, bersih, dan profesional untuk layanan mobilitas kota.</p></div></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="routes">
+			<div class="container">
+				<div class="section-header-row reveal" data-reveal>
+					<div class="section-heading" style="margin-bottom: 0;">
+						<span class="section-kicker">Rute Populer</span>
+						<h2 class="section-title">Cari rute angkot paling sering dipakai di Bogor.</h2>
+						<p class="section-copy">Gunakan pencarian cepat untuk menemukan kode trayek, tujuan, estimasi waktu, dan status layanan.</p>
+					</div>
+				</div>
+
+				<div class="route-controls reveal" data-reveal>
+					<div class="route-map-panel">
+						<div class="route-map-copy">
+							<span class="section-kicker">Peta Rute</span>
+							<h3>Ringkasan jalur transportasi Bogor</h3>
+							<p class="section-copy">Tampilan visual ringan untuk membantu pengguna memahami simpul rute utama kota.</p>
+						</div>
+						<svg class="route-map" viewBox="0 0 640 180" role="img" aria-label="Ringkasan jalur rute Angkot Bogor">
+							<path d="M40 136 C100 84, 160 84, 220 136 S340 188, 400 136 S520 84, 600 136" fill="none" stroke="rgba(47,143,78,0.18)" stroke-width="18" stroke-linecap="round" />
+							<path d="M40 136 C100 84, 160 84, 220 136 S340 188, 400 136 S520 84, 600 136" fill="none" stroke="rgba(47,143,78,0.7)" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 10" />
+							<circle cx="40" cy="136" r="12" fill="#2f8f4e" />
+							<circle cx="220" cy="136" r="12" fill="#2f8f4e" />
+							<circle cx="400" cy="136" r="12" fill="#2f8f4e" />
+							<circle cx="600" cy="136" r="12" fill="#2f8f4e" />
+							<text x="28" y="110" fill="currentColor" font-size="18" font-weight="700">Bubulak</text>
+							<text x="172" y="110" fill="currentColor" font-size="18" font-weight="700">Baranangsiang</text>
+							<text x="375" y="110" fill="currentColor" font-size="18" font-weight="700">Ciawi</text>
+							<text x="554" y="110" fill="currentColor" font-size="18" font-weight="700">Dramaga</text>
+						</svg>
+					</div>
+					<div class="schedule-strip">
+						<div class="schedule-card">
+							<span class="schedule-label">Operasional</span>
+							<strong>05.00 - 21.30</strong>
+							<p class="section-copy">Layanan aktif setiap hari dengan intensitas tertinggi pagi dan sore.</p>
+						</div>
+						<div class="schedule-card">
+							<span class="schedule-label">Jam Ramai</span>
+							<strong>06.30 - 08.30</strong>
+							<p class="section-copy">Cocok untuk komuter, pelajar, dan perjalanan menuju pusat kota.</p>
+						</div>
+					</div>
+					<label class="search-bar" for="route-search">
+						<span aria-hidden="true">⌕</span>
+						<input id="route-search" type="search" placeholder="Cari kode rute, tujuan, atau area..." data-route-search>
+					</label>
+					<div class="filter-pills" aria-label="Filter rute">
+						<button class="filter-pill active" type="button" data-route-filter="all">Semua</button>
+						<button class="filter-pill" type="button" data-route-filter="pusat">Pusat Kota</button>
+						<button class="filter-pill" type="button" data-route-filter="kampus">Kampus</button>
+						<button class="filter-pill" type="button" data-route-filter="wisata">Wisata</button>
+					</div>
+				</div>
+
+				<div class="routes-grid">
+					<article class="route-card reveal" data-reveal data-route-card data-route-category="pusat" data-route-keywords="b01 bubulak baranangsiang bogor pusat kota terminal kencana" data-route-code="B01" data-route-name="Bubulak - Baranangsiang" data-route-duration="24 menit" data-route-distance="7.1 km" data-route-price="Rp 5.000" data-route-status="Aktif" data-route-stops="Bubulak, Simpang Yasmin, Warung Jambu, Baranangsiang" data-route-hours="05.00 - 21.30">
+						<div class="route-top">
+							<span class="route-code">B01</span>
+							<span class="route-status">Aktif</span>
+						</div>
+						<h3 class="route-title">Bubulak - Baranangsiang</h3>
+						<div class="route-meta">
+							<span><strong>Waktu</strong> 24 menit</span>
+							<span><strong>Jarak</strong> 7.1 km</span>
+						</div>
+						<div class="route-footer">
+							<span class="route-price">Rp 5.000</span>
+							<button class="card-link route-detail-trigger" type="button" data-route-detail>Detail trayek</button>
+						</div>
+					</article>
+
+					<article class="route-card reveal" data-reveal data-route-card data-route-category="kampus" data-route-keywords="b04 bubulak ipb dramaga kampus darmaga bogor" data-route-code="B04" data-route-name="Bubulak - IPB Dramaga" data-route-duration="32 menit" data-route-distance="10.8 km" data-route-price="Rp 7.000" data-route-status="Ramai" data-route-stops="Bubulak, Cifor, Dramaga, IPB Darmaga" data-route-hours="05.00 - 22.00">
+						<div class="route-top">
+							<span class="route-code">B04</span>
+							<span class="route-status">Ramai</span>
+						</div>
+						<h3 class="route-title">Bubulak - IPB Dramaga</h3>
+						<div class="route-meta">
+							<span><strong>Waktu</strong> 32 menit</span>
+							<span><strong>Jarak</strong> 10.8 km</span>
+						</div>
+						<div class="route-footer">
+							<span class="route-price">Rp 7.000</span>
+							<button class="card-link route-detail-trigger" type="button" data-route-detail>Detail trayek</button>
+						</div>
+					</article>
+
+					<article class="route-card reveal" data-reveal data-route-card data-route-category="wisata" data-route-keywords="b03 baranangsiang ciawi bogor wisata tajur kebun raya" data-route-code="B03" data-route-name="Baranangsiang - Ciawi" data-route-duration="26 menit" data-route-distance="8.4 km" data-route-price="Rp 6.000" data-route-status="Rekomendasi" data-route-stops="Baranangsiang, Tajur, Sukasari, Ciawi" data-route-hours="05.30 - 21.00">
+						<div class="route-top">
+							<span class="route-code">B03</span>
+							<span class="route-status">Rekomendasi</span>
+						</div>
+						<h3 class="route-title">Baranangsiang - Ciawi</h3>
+						<div class="route-meta">
+							<span><strong>Waktu</strong> 26 menit</span>
+							<span><strong>Jarak</strong> 8.4 km</span>
+						</div>
+						<div class="route-footer">
+							<span class="route-price">Rp 6.000</span>
+							<button class="card-link route-detail-trigger" type="button" data-route-detail>Detail trayek</button>
+						</div>
+					</article>
+
+					<article class="route-card reveal" data-reveal data-route-card data-route-category="pusat" data-route-keywords="b05 warung jambu btm pusat kota bogor tajur" data-route-code="B05" data-route-name="Warung Jambu - BTM" data-route-duration="20 menit" data-route-distance="5.9 km" data-route-price="Rp 6.000" data-route-status="Stabil" data-route-stops="Warung Jambu, Tegal Gundil, Suryakencana, BTM" data-route-hours="05.00 - 21.30">
+						<div class="route-top">
+							<span class="route-code">B05</span>
+							<span class="route-status">Stabil</span>
+						</div>
+						<h3 class="route-title">Warung Jambu - BTM</h3>
+						<div class="route-meta">
+							<span><strong>Waktu</strong> 20 menit</span>
+							<span><strong>Jarak</strong> 5.9 km</span>
+						</div>
+						<div class="route-footer">
+							<span class="route-price">Rp 6.000</span>
+							<button class="card-link route-detail-trigger" type="button" data-route-detail>Detail trayek</button>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section--soft" id="features">
+			<div class="container">
+				<div class="section-heading reveal" data-reveal>
+					<span class="section-kicker">Keunggulan</span>
+					<h2 class="section-title">Fitur yang membuat perjalanan terasa lebih sederhana.</h2>
+					<p class="section-copy">Pengalaman digital dibuat agar penumpang cepat menemukan informasi, lalu lanjut ke perjalanan tanpa banyak langkah.</p>
+				</div>
+
+				<div class="features-grid">
+					<article class="feature-card reveal" data-reveal>
+						<div class="feature-icon">⏱</div>
+						<h3>Estimasi waktu akurat</h3>
+						<p>Perkirakan durasi perjalanan dari titik awal ke tujuan dengan informasi yang jelas dan ringkas.</p>
+					</article>
+					<article class="feature-card reveal" data-reveal>
+						<div class="feature-icon">🗺</div>
+						<h3>Peta rute yang intuitif</h3>
+						<p>Struktur visual membantu pengguna memahami jalur utama dan titik transit populer di Bogor.</p>
+					</article>
+					<article class="feature-card reveal" data-reveal>
+						<div class="feature-icon">📱</div>
+						<h3>Nyaman di mobile</h3>
+						<p>Spasi, ukuran tombol, dan kartu dirancang agar mudah digunakan dengan satu tangan.</p>
+					</article>
+					<article class="feature-card reveal" data-reveal>
+						<div class="feature-icon">🔔</div>
+						<h3>Update status trayek</h3>
+						<p>Status aktif, ramai, atau rekomendasi membantu pengguna memilih perjalanan yang paling tepat.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="stats">
+			<div class="container">
+				<div class="section-heading reveal" data-reveal>
+					<span class="section-kicker">Statistik Penumpang</span>
+					<h2 class="section-title">Angka yang menunjukkan kepercayaan terhadap layanan Angkot Bogor.</h2>
+				</div>
+
+				<div class="stats-grid">
+					<article class="stat-card reveal" data-reveal>
+						<span class="stat-number" data-counter="120" data-suffix="K+">0</span>
+						<h3>Penumpang bulanan</h3>
+						<p class="stat-label">Pertumbuhan penggunaan layanan digital terus meningkat.</p>
+					</article>
+					<article class="stat-card reveal" data-reveal>
+						<span class="stat-number" data-counter="45" data-suffix="+">0</span>
+						<h3>Rute aktif</h3>
+						<p class="stat-label">Pilihan trayek utama yang paling sering dipakai warga kota.</p>
+					</article>
+					<article class="stat-card reveal" data-reveal>
+						<span class="stat-number" data-counter="98" data-suffix="%">0</span>
+						<h3>Ketepatan info</h3>
+						<p class="stat-label">Informasi yang disajikan lebih mudah dipahami dan cepat diakses.</p>
+					</article>
+					<article class="stat-card reveal" data-reveal>
+						<span class="stat-number" data-counter="4" data-suffix=".8">0</span>
+						<h3>Skor kepuasan</h3>
+						<p class="stat-label">Pengguna menilai pengalaman perjalanan lebih nyaman dan modern.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section--soft" id="testimonials">
+			<div class="container">
+				<div class="section-heading reveal" data-reveal>
+					<span class="section-kicker">Testimoni</span>
+					<h2 class="section-title">Apa kata penumpang tentang pengalaman Angkot Bogor.</h2>
+				</div>
+
+				<div class="testimonials-grid">
+					<article class="testimonial-card reveal" data-reveal>
+						<div class="testimonial-top">
+							<div class="avatar">AR</div>
+							<div>
+								<h3>Alya R.</h3>
+								<p>Mahasiswa</p>
+							</div>
+							<div class="quote-mark">“</div>
+						</div>
+						<p>Rutenya gampang dicari dan tampilannya bersih. Saya jadi lebih cepat tahu angkot yang harus diambil.</p>
+					</article>
+
+					<article class="testimonial-card reveal" data-reveal>
+						<div class="testimonial-top">
+							<div class="avatar">DP</div>
+							<div>
+								<h3>Dimas P.</h3>
+								<p>Pekerja harian</p>
+							</div>
+							<div class="quote-mark">“</div>
+						</div>
+						<p>Versi mobile-nya nyaman dipakai. Tombolnya besar, tidak bikin bingung saat sedang buru-buru.</p>
+					</article>
+
+					<article class="testimonial-card reveal" data-reveal>
+						<div class="testimonial-top">
+							<div class="avatar">SN</div>
+							<div>
+								<h3>Sinta N.</h3>
+								<p>Wisatawan</p>
+							</div>
+							<div class="quote-mark">“</div>
+						</div>
+						<p>Informasinya terasa modern dan membantu saat ingin ke Kebun Raya Bogor tanpa ribet mencari info tambahan.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="faq">
+			<div class="container">
+				<div class="section-heading reveal" data-reveal>
+					<span class="section-kicker">FAQ</span>
+					<h2 class="section-title">Pertanyaan yang paling sering ditanyakan pengguna.</h2>
+				</div>
+
+				<div class="faq-grid">
+					<div class="faq-item reveal" data-reveal data-faq-item>
+						<button class="faq-trigger" type="button">
+							<span>Apakah informasi rute ini cocok untuk pengguna baru?</span>
+							<span class="faq-icon">+</span>
+						</button>
+						<div class="faq-content">
+							<p>Ya, semua kartu rute dibuat ringkas dan mudah dibaca agar penumpang baru bisa langsung menemukan tujuan yang sesuai.</p>
+						</div>
+					</div>
+
+					<div class="faq-item reveal" data-reveal data-faq-item>
+						<button class="faq-trigger" type="button">
+							<span>Bagaimana cara mencari rute tertentu?</span>
+							<span class="faq-icon">+</span>
+						</button>
+						<div class="faq-content">
+							<p>Gunakan kolom pencarian untuk mengetik kode trayek, nama tujuan, atau area yang ingin dituju.</p>
+						</div>
+					</div>
+
+					<div class="faq-item reveal" data-reveal data-faq-item>
+						<button class="faq-trigger" type="button">
+							<span>Apakah halaman ini mendukung mode gelap?</span>
+							<span class="faq-icon">+</span>
+						</button>
+						<div class="faq-content">
+							<p>Ya, terdapat toggle mode gelap yang menyimpan pilihan pengguna agar tampilan tetap nyaman saat dibuka kembali.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section--soft" id="download">
+			<div class="container">
+				<div class="cta-card reveal" data-reveal>
+					<span class="section-kicker" style="background: rgba(255,255,255,0.14); color: #fff;">Download App</span>
+					<h2 class="section-title">Bawa pengalaman Angkot Bogor ke dalam saku Anda.</h2>
+					<p>Unduh aplikasi untuk akses rute favorit, info trayek, dan pembaruan yang lebih praktis kapan pun dibutuhkan.</p>
+					<div class="cta-actions">
+						<a class="primary-button" href="#home">Mulai Sekarang</a>
+						<a class="secondary-button" href="#routes">Jelajahi Rute</a>
+					</div>
+					<div class="cta-stores">
+						<a class="store-button" href="https://play.google.com" target="_blank" rel="noreferrer">Google Play</a>
+						<a class="store-button" href="https://www.apple.com/app-store/" target="_blank" rel="noreferrer">App Store</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container footer-grid">
+			<div class="footer-brand">
+				<a class="brand" href="#home">
+					<span class="brand-mark">A</span>
+					<span class="brand-text"><span>Angkot Bogor</span><span>Mobilitas Kota</span></span>
+				</a>
+				<p class="footer-note">Website landing page modern untuk transportasi publik Bogor dengan tampilan premium, responsif, dan ramah pengguna.</p>
+			</div>
+
+			<div>
+				<h3>Menu</h3>
+				<ul class="footer-links">
+					<li><a href="#about">Tentang</a></li>
+					<li><a href="#routes">Rute</a></li>
+					<li><a href="#features">Keunggulan</a></li>
+					<li><a href="#faq">FAQ</a></li>
+				</ul>
+			</div>
+
+			<div>
+				<h3>Ikuti Kami</h3>
+				<ul class="social-links">
+					<li><a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">ig</a></li>
+					<li><a href="https://x.com" target="_blank" rel="noreferrer" aria-label="X">x</a></li>
+					<li><a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">fb</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+
+	<div class="route-modal" data-route-modal aria-hidden="true">
+		<div class="route-modal-backdrop" data-route-modal-close></div>
+		<div class="route-modal-panel" role="dialog" aria-modal="true" aria-labelledby="route-modal-title">
+			<button class="route-modal-close" type="button" data-route-modal-close aria-label="Tutup detail trayek">×</button>
+			<span class="route-modal-code" data-route-modal-code>B01</span>
+			<h3 id="route-modal-title" data-route-modal-title>Bubulak - Baranangsiang</h3>
+			<p class="section-copy" data-route-modal-summary>Trayek utama yang menghubungkan kawasan barat Bogor ke pusat mobilitas kota.</p>
+			<div class="route-modal-grid">
+				<div><span>Durasi</span><strong data-route-modal-duration>24 menit</strong></div>
+				<div><span>Jarak</span><strong data-route-modal-distance>7.1 km</strong></div>
+				<div><span>Tarif</span><strong data-route-modal-price>Rp 5.000</strong></div>
+				<div><span>Operasional</span><strong data-route-modal-hours>05.00 - 21.30</strong></div>
+			</div>
+			<div class="route-modal-stops">
+				<h4>Halte / titik populer</h4>
+				<p data-route-modal-stops>Bubulak, Simpang Yasmin, Warung Jambu, Baranangsiang</p>
+			</div>
+			<a class="primary-button" href="#download">Lihat panduan lengkap</a>
+		</div>
+	</div>
+
+	<button class="scroll-top" type="button" data-scroll-top aria-label="Kembali ke atas">↑</button>
+
+	<script src="script.js"></script>
+</body>
+</html>
