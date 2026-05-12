@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rute Angkot Bogor - trayek populer, jadwal, dan detail perjalanan.">
+  <title>Rute - Angkot Bogor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-loading">
+  <div class="loading-screen" data-loading-screen aria-hidden="true"><div class="loader" aria-label="Memuat halaman"><span></span></div></div>
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Navigasi halaman">
+        <a class="brand" href="index.html"><span class="brand-mark">A</span><span class="brand-text"><span>Angkot Bogor</span><span>Mobilitas Kota</span></span></a>
+        <div class="nav-links" data-nav-links>
+          <a href="index.html">Beranda</a><a href="about.html">Tentang</a><a href="routes.html">Rute</a><a href="features.html">Keunggulan</a><a href="stats.html">Statistik</a><a href="testimonials.html">Testimoni</a><a href="faq.html">FAQ</a><a href="download.html">Unduh</a>
+        </div>
+        <div class="nav-actions">
+          <button class="icon-button" type="button" data-theme-toggle aria-pressed="false" aria-label="Toggle dark mode"><span>◐</span></button>
+          <a class="secondary-button" href="#download">Unduh App</a>
+          <button class="icon-button menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="Buka menu"><span>☰</span></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="page-hero">
+      <div class="container page-hero-grid">
+        <div class="page-hero-card reveal" data-reveal>
+          <span class="section-kicker">Rute</span>
+          <h1 class="page-hero-title">Temukan trayek Angkot Bogor dengan cepat.</h1>
+          <p>Halaman ini menggabungkan pencarian trayek, jadwal operasional, dan detail rute agar pengguna bisa langsung memilih perjalanan yang paling cocok.</p>
+        </div>
+        <div class="page-panel reveal" data-reveal>
+          <ul class="page-list">
+            <li>Cari berdasarkan kode trayek, tujuan, atau area.</li>
+            <li>Lihat detail trayek tanpa meninggalkan halaman.</li>
+            <li>Gunakan tema dan navigasi yang konsisten di semua halaman.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="container">
+        <div class="route-controls reveal" data-reveal>
+          <div class="route-map-panel" data-route-map-panel>
+            <div class="route-map-copy">
+              <span class="section-kicker">Peta Interaktif</span>
+              <h3>Sentuh simpul untuk menyorot trayek.</h3>
+              <p class="section-copy">Klik titik pada jalur untuk menampilkan kartu rute yang paling relevan dan memperbarui ringkasan di bawahnya.</p>
+            </div>
+            <div class="route-map-stage" data-route-map-stage>
+              <svg class="route-map" viewBox="0 0 640 180" role="img" aria-label="Peta interaktif trayek Angkot Bogor">
+                <path d="M40 136 C100 84, 160 84, 220 136 S340 188, 400 136 S520 84, 600 136" fill="none" stroke="rgba(47,143,78,0.18)" stroke-width="18" stroke-linecap="round" />
+                <path d="M40 136 C100 84, 160 84, 220 136 S340 188, 400 136 S520 84, 600 136" fill="none" stroke="rgba(47,143,78,0.7)" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 10" />
+                <circle cx="40" cy="136" r="12" fill="#2f8f4e" />
+                <circle cx="220" cy="136" r="12" fill="#2f8f4e" />
+                <circle cx="400" cy="136" r="12" fill="#2f8f4e" />
+                <circle cx="600" cy="136" r="12" fill="#2f8f4e" />
+                <text x="28" y="110" fill="currentColor" font-size="18" font-weight="700">Bubulak</text>
+                <text x="172" y="110" fill="currentColor" font-size="18" font-weight="700">Baranangsiang</text>
+                <text x="375" y="110" fill="currentColor" font-size="18" font-weight="700">Ciawi</text>
+                <text x="554" y="110" fill="currentColor" font-size="18" font-weight="700">Dramaga</text>
+              </svg>
+
+              <button class="map-node map-node--b01 active" type="button" data-map-target="B01" style="left: 8%; top: 63%;">B01</button>
+              <button class="map-node map-node--b04" type="button" data-map-target="B04" style="left: 33%; top: 63%;">B04</button>
+              <button class="map-node map-node--b03" type="button" data-map-target="B03" style="left: 58%; top: 63%;">B03</button>
+              <button class="map-node map-node--b05" type="button" data-map-target="B05" style="left: 84%; top: 63%;">B05</button>
+
+              <div class="map-tooltip" data-map-tooltip>
+                <strong data-map-tooltip-title>B01 - Bubulak</strong>
+                <span data-map-tooltip-text>Trayek aktif menuju Baranangsiang</span>
+              </div>
+            </div>
+          </div>
+          <div class="schedule-strip">
+            <div class="schedule-card"><span class="schedule-label">Operasional</span><strong>05.00 - 21.30</strong><p class="section-copy">Layanan aktif setiap hari dengan intensitas tertinggi pagi dan sore.</p></div>
+            <div class="schedule-card"><span class="schedule-label">Jam Ramai</span><strong>06.30 - 08.30</strong><p class="section-copy">Waktu paling padat untuk perjalanan komuter dan pelajar.</p></div>
+          </div>
+          <div class="map-summary reveal" data-reveal>
+            <span class="section-kicker">Sorotan Peta</span>
+            <h3 data-map-summary-title>Trayek utama</h3>
+            <p class="section-copy" data-map-summary-text>Klik simpul untuk melihat trayek yang sedang disorot.</p>
+          </div>
+          <label class="search-bar" for="route-search"><span aria-hidden="true">⌕</span><input id="route-search" type="search" placeholder="Cari kode rute, tujuan, atau area..." data-route-search></label>
+          <div class="filter-pills" aria-label="Filter rute"><button class="filter-pill active" type="button" data-route-filter="all">Semua</button><button class="filter-pill" type="button" data-route-filter="pusat">Pusat Kota</button><button class="filter-pill" type="button" data-route-filter="kampus">Kampus</button><button class="filter-pill" type="button" data-route-filter="wisata">Wisata</button></div>
+        </div>
+
+        <div class="routes-grid">
+          <article class="route-card reveal" data-reveal data-route-card data-route-category="pusat" data-route-keywords="b01 bubulak baranangsiang bogor pusat kota terminal kencana" data-route-code="B01" data-route-name="Bubulak - Baranangsiang" data-route-duration="24 menit" data-route-distance="7.1 km" data-route-price="Rp 5.000" data-route-status="Aktif" data-route-stops="Bubulak, Simpang Yasmin, Warung Jambu, Baranangsiang" data-route-hours="05.00 - 21.30"><div class="route-top"><span class="route-code">B01</span><span class="route-status">Aktif</span></div><h3 class="route-title">Bubulak - Baranangsiang</h3><div class="route-meta"><span><strong>Waktu</strong> 24 menit</span><span><strong>Jarak</strong> 7.1 km</span></div><div class="route-footer"><span class="route-price">Rp 5.000</span><button class="card-link route-detail-trigger" type="button" data-route-detail>Detail trayek</button></div></article>
+          <article class="route-card reveal" data-reveal data-route-card data-route-category="kampus" data-route-keywords="b04 bubulak ipb dramaga kampus darmaga bogor" data-route-code="B04" data-route-name="Bubulak - IPB Dramaga" data-route-duration="32 menit" data-route-distance="10.8 km" data-route-price="Rp 7.000" data-route-status="Ramai" data-route-stops="Bubulak, Cifor, Dramaga, IPB Darmaga" data-route-hours="05.00 - 22.00"><div class="route-top"><span class="route-code">B04</span><span class="route-status">Ramai</span></div><h3 class="route-title">Bubulak - IPB Dramaga</h3><div class="route-meta"><span><strong>Waktu</strong> 32 menit</span><span><strong>Jarak</strong> 10.8 km</span></div><div class="route-footer"><span class="route-price">Rp 7.000</span><button class="card-link route-detail-trigger" type="button" data-route-detail>Detail trayek</button></div></article>
+          <article class="route-card reveal" data-reveal data-route-card data-route-category="wisata" data-route-keywords="b03 baranangsiang ciawi bogor wisata tajur kebun raya" data-route-code="B03" data-route-name="Baranangsiang - Ciawi" data-route-duration="26 menit" data-route-distance="8.4 km" data-route-price="Rp 6.000" data-route-status="Rekomendasi" data-route-stops="Baranangsiang, Tajur, Sukasari, Ciawi" data-route-hours="05.30 - 21.00"><div class="route-top"><span class="route-code">B03</span><span class="route-status">Rekomendasi</span></div><h3 class="route-title">Baranangsiang - Ciawi</h3><div class="route-meta"><span><strong>Waktu</strong> 26 menit</span><span><strong>Jarak</strong> 8.4 km</span></div><div class="route-footer"><span class="route-price">Rp 6.000</span><button class="card-link route-detail-trigger" type="button" data-route-detail>Detail trayek</button></div></article>
+          <article class="route-card reveal" data-reveal data-route-card data-route-category="pusat" data-route-keywords="b05 warung jambu btm pusat kota bogor tajur" data-route-code="B05" data-route-name="Warung Jambu - BTM" data-route-duration="20 menit" data-route-distance="5.9 km" data-route-price="Rp 6.000" data-route-status="Stabil" data-route-stops="Warung Jambu, Tegal Gundil, Suryakencana, BTM" data-route-hours="05.00 - 21.30"><div class="route-top"><span class="route-code">B05</span><span class="route-status">Stabil</span></div><h3 class="route-title">Warung Jambu - BTM</h3><div class="route-meta"><span><strong>Waktu</strong> 20 menit</span><span><strong>Jarak</strong> 5.9 km</span></div><div class="route-footer"><span class="route-price">Rp 6.000</span><button class="card-link route-detail-trigger" type="button" data-route-detail>Detail trayek</button></div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand"><a class="brand" href="index.html"><span class="brand-mark">A</span><span class="brand-text"><span>Angkot Bogor</span><span>Mobilitas Kota</span></span></a><p class="footer-note">Halaman rute ini bisa dipakai sebagai pusat navigasi trayek dan detail perjalanan.</p></div>
+      <div><h3>Halaman</h3><ul class="footer-links"><li><a href="about.html">Tentang</a></li><li><a href="features.html">Keunggulan</a></li><li><a href="stats.html">Statistik</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+      <div><h3>Ikuti Kami</h3><ul class="social-links"><li><a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">ig</a></li><li><a href="https://x.com" target="_blank" rel="noreferrer" aria-label="X">x</a></li><li><a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">fb</a></li></ul></div>
+    </div>
+  </footer>
+
+  <div class="route-modal" data-route-modal aria-hidden="true">
+    <div class="route-modal-backdrop" data-route-modal-close></div>
+    <div class="route-modal-panel" role="dialog" aria-modal="true" aria-labelledby="route-modal-title">
+      <button class="route-modal-close" type="button" data-route-modal-close aria-label="Tutup detail trayek">×</button>
+      <span class="route-modal-code" data-route-modal-code>B01</span>
+      <h3 id="route-modal-title" data-route-modal-title>Bubulak - Baranangsiang</h3>
+      <p class="section-copy" data-route-modal-summary>Trayek utama yang menghubungkan kawasan barat Bogor ke pusat mobilitas kota.</p>
+      <div class="route-modal-grid"><div><span>Durasi</span><strong data-route-modal-duration>24 menit</strong></div><div><span>Jarak</span><strong data-route-modal-distance>7.1 km</strong></div><div><span>Tarif</span><strong data-route-modal-price>Rp 5.000</strong></div><div><span>Operasional</span><strong data-route-modal-hours>05.00 - 21.30</strong></div></div>
+      <div class="route-modal-stops"><h4>Halte / titik populer</h4><p data-route-modal-stops>Bubulak, Simpang Yasmin, Warung Jambu, Baranangsiang</p></div>
+      <a class="primary-button" href="download.html">Lihat panduan lengkap</a>
+    </div>
+  </div>
+
+  <button class="scroll-top" type="button" data-scroll-top aria-label="Kembali ke atas">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>

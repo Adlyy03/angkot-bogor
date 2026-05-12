@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Scroll to top on page load/refresh
+  window.scrollTo(0, 0);
+  
   const body = document.body;
   const loadingScreen = document.querySelector("[data-loading-screen]");
   const menuToggle = document.querySelector("[data-menu-toggle]");
@@ -24,14 +27,48 @@ document.addEventListener("DOMContentLoaded", () => {
   const routeModalPrice = document.querySelector("[data-route-modal-price]");
   const routeModalHours = document.querySelector("[data-route-modal-hours]");
   const routeModalStops = document.querySelector("[data-route-modal-stops]");
+  const mapNodes = Array.from(document.querySelectorAll("[data-map-target]"));
+  const routeMapStage = document.querySelector("[data-route-map-stage]");
+  const mapTooltipTitle = document.querySelector("[data-map-tooltip-title]");
+  const mapTooltipText = document.querySelector("[data-map-tooltip-text]");
+  const mapSummaryTitle = document.querySelector("[data-map-summary-title]");
+  const mapSummaryText = document.querySelector("[data-map-summary-text]");
   const sections = Array.from(document.querySelectorAll("main section[id]"));
   const heroStage = document.querySelector("[data-hero-stage]");
   const heroTitle = document.querySelector("[data-hero-title]");
   const heroCopy = document.querySelector("[data-hero-copy]");
   const heroActions = document.querySelector("[data-hero-actions]");
+  const header = document.querySelector(".site-header");
+  const parallaxLayers = Array.from(document.querySelectorAll("[data-parallax-speed]"));
+  const parallaxFaders = Array.from(document.querySelectorAll("[data-parallax-fade]"));
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const hasPageLinks = navAnchorLinks.some((link) => {
+    const href = link.getAttribute("href") || "";
+    return href && !href.startsWith("#");
+  });
+
+  const scrollProgress = document.createElement("div");
+  scrollProgress.className = "scroll-progress";
+  scrollProgress.innerHTML = '<span data-scroll-progress-fill></span>';
+  document.body.prepend(scrollProgress);
+  const scrollProgressFill = scrollProgress.querySelector("[data-scroll-progress-fill]");
+
+  const motionTargets = Array.from(
+    document.querySelectorAll(
+      ".page-hero-card, .page-panel, .page-switch-link, .route-map-panel, .schedule-card, .map-summary, .trust-item, .about-panel, .feature-card, .route-card, .stat-card, .testimonial-card, .cta-card, .search-bar, .icon-button, .primary-button, .secondary-button"
+    )
+  );
 
   const themeKey = "angkot-bogor-theme";
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const lowCpu = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2;
+  const lowMemory = navigator.deviceMemory && navigator.deviceMemory <= 2;
+  const allowParallax = !prefersReducedMotion && !(lowCpu || lowMemory);
+
+  if (!allowParallax) {
+    body.classList.add("low-motion");
+  }
 
   const setTheme = (theme) => {
     body.dataset.theme = theme;
@@ -81,7 +118,64 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.18, rootMargin: "0px 0px -10% 0px" }
   );
 
-  revealElements.forEach((element) => observer.observe(element));
+  revealElements.forEach((element, index) => {
+    element.style.transitionDelay = `${Math.min(index * 60, 360)}ms`;
+    observer.observe(element);
+  });
+
+  const attachTilt = (element) => {
+    let rect = null;
+
+    const resetTilt = () => {
+      element.style.setProperty("--tilt-x", "0deg");
+      element.style.setProperty("--tilt-y", "0deg");
+      element.style.setProperty("--lift", "0px");
+      element.style.setProperty("--card-scale", "1");
+    };
+
+    element.addEventListener("pointerenter", () => {
+      rect = element.getBoundingClientRect();
+    });
+
+    element.addEventListener("pointermove", (event) => {
+      if (event.pointerType !== "mouse") {
+        return;
+      }
+
+      rect ||= element.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+      element.style.setProperty("--tilt-x", `${(x * 8).toFixed(2)}deg`);
+      element.style.setProperty("--tilt-y", `${(-y * 8).toFixed(2)}deg`);
+      element.style.setProperty("--lift", "-6px");
+      element.style.setProperty("--card-scale", "1.02");
+    });
+
+    element.addEventListener("pointerleave", () => {
+      rect = null;
+      resetTilt();
+    });
+
+    element.addEventListener("pointerdown", () => {
+      element.style.setProperty("--card-scale", "1.01");
+    });
+  };
+
+  motionTargets.forEach((element) => attachTilt(element));
+
+  const updateScrollUi = () => {
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = maxScroll > 0 ? Math.min(window.scrollY / maxScroll, 1) : 0;
+
+    if (scrollProgressFill) {
+      scrollProgressFill.style.width = `${(progress * 100).toFixed(2)}%`;
+    }
+
+    if (header) {
+      header.classList.toggle("scrolled", window.scrollY > 12);
+    }
+  };
 
   const animateCounter = (element) => {
     const target = Number(element.dataset.counter || "0");
@@ -132,6 +226,50 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const routeList = Array.from(routeCards);
+  const routeByCode = new Map(routeList.map((card) => [card.dataset.routeCode, card]));
+
+  const mapDetails = {
+    B01: { title: "B01 - Bubulak", text: "Trayek aktif menuju Baranangsiang", summary: "Jalur utama barat kota ke pusat mobilitas Bogor." },
+    B03: { title: "B03 - Ciawi", text: "Rute wisata dan koneksi antarkawasan", summary: "Cocok untuk perjalanan ke arah Tajur dan Ciawi." },
+    B04: { title: "B04 - IPB Dramaga", text: "Rute kampus dengan arus penumpang ramai", summary: "Pilihan utama menuju IPB Dramaga dari Bubulak." },
+    B05: { title: "B05 - BTM", text: "Trayek pusat kota yang stabil", summary: "Menghubungkan Warung Jambu, pusat kota, dan BTM." },
+  };
+
+  const setMapSelection = (code) => {
+    const detail = mapDetails[code] || mapDetails.B01;
+
+    mapNodes.forEach((node) => {
+      node.classList.toggle("active", node.dataset.mapTarget === code);
+    });
+
+    if (mapTooltipTitle) {
+      mapTooltipTitle.textContent = detail.title;
+    }
+
+    if (mapTooltipText) {
+      mapTooltipText.textContent = detail.text;
+    }
+
+    if (mapSummaryTitle) {
+      mapSummaryTitle.textContent = detail.title;
+    }
+
+    if (mapSummaryText) {
+      mapSummaryText.textContent = detail.summary;
+    }
+
+    const card = routeByCode.get(code);
+    if (card) {
+      routeSearch.value = code;
+      activeFilter = "all";
+      filterPills.forEach((button) => button.classList.toggle("active", button.dataset.routeFilter === "all"));
+      applyRouteFilters();
+      routeList.forEach((routeCard) => routeCard.classList.remove("is-highlighted"));
+      card.classList.add("is-highlighted");
+      window.setTimeout(() => card.classList.remove("is-highlighted"), 1200);
+      card.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
 
   const openRouteModal = (card) => {
     if (!routeModal) {
@@ -196,7 +334,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  closeRouteModal();
+
   const renderNoData = () => {
+    if (!routeGrid) {
+      return null;
+    }
+
     let noData = document.querySelector("[data-no-routes]");
     if (!noData) {
       noData = document.createElement("div");
@@ -210,6 +354,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let activeFilter = "all";
   const applyRouteFilters = () => {
+    if (!routeSearch || !routeGrid || routeList.length === 0) {
+      return;
+    }
+
     const query = routeSearch.value.trim().toLowerCase();
     let visibleCount = 0;
 
@@ -230,7 +378,15 @@ document.addEventListener("DOMContentLoaded", () => {
     noData.style.display = visibleCount === 0 ? "block" : "none";
   };
 
-  routeSearch.addEventListener("input", applyRouteFilters);
+  if (routeSearch) {
+    routeSearch.addEventListener("input", applyRouteFilters);
+  }
+
+  mapNodes.forEach((node) => {
+    node.addEventListener("click", () => {
+      setMapSelection(node.dataset.mapTarget);
+    });
+  });
 
   filterPills.forEach((pill) => {
     pill.addEventListener("click", () => {
@@ -241,7 +397,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  if (mapNodes.length) {
+    setMapSelection(mapNodes[0].dataset.mapTarget);
+  }
+
   const updateActiveSection = () => {
+    if (hasPageLinks) {
+      navAnchorLinks.forEach((link) => {
+        const linkUrl = new URL(link.getAttribute("href"), window.location.href);
+        const linkPage = linkUrl.pathname.split("/").pop() || "index.html";
+        const isActive = linkPage === currentPage;
+        link.classList.toggle("active", isActive);
+      });
+      return;
+    }
+
     const scrollPosition = window.scrollY + 130;
     let currentId = sections[0]?.id || "home";
 
@@ -261,23 +431,52 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollTopButton.classList.toggle("visible", window.scrollY > 420);
   };
 
-  const parallaxHero = () => {
-    if (!heroStage || window.innerWidth < 768) {
+  const parallaxHero = (scrollY) => {
+    if (!allowParallax || (!heroStage && parallaxLayers.length === 0)) {
       return;
     }
 
-    const offset = window.scrollY * 0.08;
-    heroStage.style.transform = `translate3d(0, ${offset * -0.2}px, 0)`;
-    heroTitle.style.transform = `translate3d(0, ${offset * 0.08}px, 0)`;
-    heroCopy.style.transform = `translate3d(0, ${offset * 0.04}px, 0)`;
-    heroActions.style.transform = `translate3d(0, ${offset * 0.02}px, 0)`;
+    const y = Math.max(0, scrollY);
+    const damp = window.innerWidth < 768 ? 0.6 : 1;
+
+    parallaxLayers.forEach((layer) => {
+      const speed = Number(layer.dataset.parallaxSpeed || "0");
+      if (!Number.isFinite(speed) || speed === 0) {
+        return;
+      }
+
+      const offset = Math.min(y * speed * damp, 120);
+      layer.style.transform = `translate3d(0, ${(-offset).toFixed(2)}px, 0)`;
+    });
+
+    parallaxFaders.forEach((element) => {
+      const fadeSpeed = Number(element.dataset.parallaxFade || "0.001");
+      const minOpacity = Number(element.dataset.parallaxMinOpacity || "0.55");
+      const nextOpacity = Math.max(minOpacity, 1 - y * fadeSpeed);
+      element.style.opacity = nextOpacity.toFixed(3);
+    });
   };
 
-  window.addEventListener("scroll", () => {
+  let latestScrollY = window.scrollY;
+  let scrollRafActive = false;
+
+  const runScrollFrame = () => {
+    scrollRafActive = false;
     updateActiveSection();
     toggleScrollTop();
-    parallaxHero();
-  }, { passive: true });
+    parallaxHero(latestScrollY);
+    updateScrollUi();
+  };
+
+  const queueScrollFrame = () => {
+    latestScrollY = window.scrollY;
+    if (!scrollRafActive) {
+      scrollRafActive = true;
+      window.requestAnimationFrame(runScrollFrame);
+    }
+  };
+
+  window.addEventListener("scroll", queueScrollFrame, { passive: true });
 
   scrollTopButton.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -297,5 +496,6 @@ document.addEventListener("DOMContentLoaded", () => {
   applyRouteFilters();
   updateActiveSection();
   toggleScrollTop();
-  parallaxHero();
+  updateScrollUi();
+  parallaxHero(window.scrollY);
 });
